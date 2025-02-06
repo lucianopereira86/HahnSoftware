@@ -1,0 +1,2 @@
+dotnet ef migrations add InitialCreate --project Repository --startup-project WebAPI -- "Server=(localdb)\\mssqllocaldb;Database=HahnSoftwareDatabase;Trusted_Connection=True;"
+dotnet ef database update --project Repository --startup-project WebAPI -- "Server=(localdb)\\mssqllocaldb;Database=HahnSoftwareDatabase;Trusted_Connection=True;"
