@@ -21,5 +21,11 @@ namespace ExternalResources.Services
             }
             return new();
         }
+        public async Task UpsertAnimeList(string baseUrl, CancellationToken cancellationToken)
+        {
+            Console.WriteLine("UpsertAnimeList started...");
+            await _httpClient.PostAsync(baseUrl, null, cancellationToken);
+            Console.WriteLine("UpsertAnimeList completed.");
+        }
     }
 }
