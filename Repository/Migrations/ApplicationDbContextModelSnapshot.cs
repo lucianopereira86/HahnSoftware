@@ -24,14 +24,21 @@ namespace Repository.Migrations
 
             modelBuilder.Entity("Domain.Models.Anime.Entities.AnimeData", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.PrimitiveCollection<string>("AbbreviatedTitles")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AgeRatingGuide")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AnimeId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -96,14 +103,11 @@ namespace Repository.Migrations
             modelBuilder.Entity("Domain.Models.Anime.Entities.AnimePosterImage", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AnimeId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Large")
                         .IsRequired()
@@ -127,23 +131,17 @@ namespace Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AnimeId")
-                        .IsUnique();
-
                     b.ToTable("AnimePosterImages");
                 });
 
             modelBuilder.Entity("Domain.Models.Anime.Entities.AnimeTitle", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AnimeId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("En")
                         .IsRequired()
@@ -159,9 +157,6 @@ namespace Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AnimeId")
-                        .IsUnique();
-
                     b.ToTable("AnimeTitles");
                 });
 
@@ -169,7 +164,7 @@ namespace Repository.Migrations
                 {
                     b.HasOne("Domain.Models.Anime.Entities.AnimeData", "AnimeData")
                         .WithOne("PosterImage")
-                        .HasForeignKey("Domain.Models.Anime.Entities.AnimePosterImage", "AnimeId")
+                        .HasForeignKey("Domain.Models.Anime.Entities.AnimePosterImage", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -180,7 +175,7 @@ namespace Repository.Migrations
                 {
                     b.HasOne("Domain.Models.Anime.Entities.AnimeData", "AnimeData")
                         .WithOne("Title")
-                        .HasForeignKey("Domain.Models.Anime.Entities.AnimeTitle", "AnimeId")
+                        .HasForeignKey("Domain.Models.Anime.Entities.AnimeTitle", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

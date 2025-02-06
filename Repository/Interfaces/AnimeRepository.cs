@@ -22,7 +22,7 @@ namespace Repository.Interfaces
                             .ToListAsync(cancellationToken);
         }
 
-        public async Task Upsert(List<AnimeData> entities, CancellationToken cancellationToken)
+        public async Task Upsert(IEnumerable<AnimeData> entities, CancellationToken cancellationToken)
         {
             using var db = new ApplicationDbContext(_dbOptions);
             db.AnimeDatas.RemoveRange(db.AnimeDatas);

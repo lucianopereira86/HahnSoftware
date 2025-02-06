@@ -6,7 +6,7 @@ namespace Repository.Interfaces
     {
         Task<IEnumerable<AnimeData>> GetAll(CancellationToken cancellationToken);
 
-        Task Upsert(List<AnimeData> entities, CancellationToken cancellationToken);
+        Task Upsert(IEnumerable<AnimeData> entities, CancellationToken cancellationToken);
     }
 
 }

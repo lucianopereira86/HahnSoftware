@@ -2,14 +2,14 @@
 {
     public class AnimePosterImage
     {
-        public int Id { get; set; } 
-        public string AnimeId { get; set; } = string.Empty;
-        public string Tiny { get; set; } = string.Empty;
-        public string Small { get; set; } = string.Empty;
-        public string Medium { get; set; } = string.Empty;
-        public string Large { get; set; } = string.Empty;
-        public string Original { get; set; } = string.Empty;
+        public int Id { get; init; } 
+        public string AnimeId { get; init; } = string.Empty;
+        public string Tiny { get; init; } = string.Empty;
+        public string Small { get; init; } = string.Empty;
+        public string Medium { get; init; } = string.Empty;
+        public string Large { get; init; } = string.Empty;
+        public string Original { get; init; } = string.Empty;
 
-        public virtual AnimeData AnimeData { get; set; } = new();
+        public virtual AnimeData AnimeData { get; init; } = null!;
     }
 }

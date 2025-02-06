@@ -9,8 +9,7 @@ namespace Repository.Database
         public void Configure(EntityTypeBuilder<AnimeTitle> builder)
         {
             builder
-                .Property(b => b.Id)
-                .UseIdentityColumn();
+                .HasKey(b => b.Id);
         }
     }
 }

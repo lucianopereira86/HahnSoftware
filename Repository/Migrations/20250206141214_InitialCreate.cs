@@ -15,7 +15,9 @@ namespace Repository.Migrations
                 name: "AnimeDatas",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AnimeId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Slug = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -44,9 +46,8 @@ namespace Repository.Migrations
                 name: "AnimePosterImages",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AnimeId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    AnimeId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Tiny = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Small = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Medium = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -57,8 +58,8 @@ namespace Repository.Migrations
                 {
                     table.PrimaryKey("PK_AnimePosterImages", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AnimePosterImages_AnimeDatas_AnimeId",
-                        column: x => x.AnimeId,
+                        name: "FK_AnimePosterImages_AnimeDatas_Id",
+                        column: x => x.Id,
                         principalTable: "AnimeDatas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -68,9 +69,8 @@ namespace Repository.Migrations
                 name: "AnimeTitles",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AnimeId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    AnimeId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     En = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     En_jp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Ja_jp = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -79,24 +79,12 @@ namespace Repository.Migrations
                 {
                     table.PrimaryKey("PK_AnimeTitles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AnimeTitles_AnimeDatas_AnimeId",
-                        column: x => x.AnimeId,
+                        name: "FK_AnimeTitles_AnimeDatas_Id",
+                        column: x => x.Id,
                         principalTable: "AnimeDatas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AnimePosterImages_AnimeId",
-                table: "AnimePosterImages",
-                column: "AnimeId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AnimeTitles_AnimeId",
-                table: "AnimeTitles",
-                column: "AnimeId",
-                unique: true);
         }
 
         /// <inheritdoc />

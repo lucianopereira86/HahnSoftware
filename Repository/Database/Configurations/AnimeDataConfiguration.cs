@@ -13,12 +13,12 @@ namespace Repository.Database.Configurations
             builder
                 .HasOne(e => e.Title)
                 .WithOne(e => e.AnimeData)
-                .HasForeignKey<AnimeTitle>(e => e.AnimeId)
+                .HasForeignKey<AnimeTitle>(e => e.Id)
                 .IsRequired();
             builder
                 .HasOne(e => e.PosterImage)
                 .WithOne(e => e.AnimeData)
-                .HasForeignKey<AnimePosterImage>(e => e.AnimeId)
+                .HasForeignKey<AnimePosterImage>(e => e.Id)
                 .IsRequired();
         }
     }

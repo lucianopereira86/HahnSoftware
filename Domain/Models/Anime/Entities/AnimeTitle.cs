@@ -2,12 +2,12 @@
 {
     public class AnimeTitle
     {
-        public int Id { get; set; }
-        public string AnimeId { get; set; } = string.Empty;
-        public string En { get; set; } = string.Empty;
-        public string En_jp { get; set; } = string.Empty;
-        public string Ja_jp { get; set; } = string.Empty;
+        public int Id { get; init; }
+        public string AnimeId { get; init; } = string.Empty;
+        public string En { get; init; } = string.Empty;
+        public string En_jp { get; init; } = string.Empty;
+        public string Ja_jp { get; init; } = string.Empty;
 
-        public virtual AnimeData AnimeData { get; set; } = new();
+        public virtual AnimeData AnimeData { get; init; } = null!;
     }
 }

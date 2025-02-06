@@ -4,26 +4,27 @@ namespace Domain.Models.Anime.Entities
 {
     public class AnimeData
     {
-        public string Id { get; set; } = string.Empty;  
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
-        public AnimeTitle Title { get; set; } = new();
-        public AnimePosterImage PosterImage { get; set; } = new();
-        public string Slug { get; set; } = string.Empty;
-        public string Synopsis { get; set; } = string.Empty;
-        public string CanonicalTitle { get; set; } = string.Empty;
-        public string[] AbbreviatedTitles { get; set; } = [];
-        public string AverageRating { get; set; } = string.Empty;
-        public int UserCount { get; set; }
-        public int FavoritesCount { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public int PopularityRank { get; set; }
-        public int RatingRank { get; set; }
-        public string AgeRatingGuide { get; set; } = string.Empty;
-        public int EpisodeCount { get; set; }
-        public int? EpisodeLength { get; set; }
-        public string YoutubeVideoId { get; set; } = string.Empty;
-        public bool Nsfw { get; set; }
+        public int Id { get; init; }   
+        public string AnimeId { get; init; } = string.Empty;  
+        public DateTime CreatedAt { get; init; }
+        public DateTime UpdatedAt { get; init; }
+        public AnimeTitle Title { get; init; } = new();
+        public AnimePosterImage PosterImage { get; init; } = new();
+        public string Slug { get; init; } = string.Empty;
+        public string Synopsis { get; init; } = string.Empty;
+        public string CanonicalTitle { get; init; } = string.Empty;
+        public string[] AbbreviatedTitles { get; init; } = [];
+        public string AverageRating { get; init; } = string.Empty;
+        public int UserCount { get; init; }
+        public int FavoritesCount { get; init; }
+        public DateTime StartDate { get; init; }
+        public DateTime EndDate { get; init; }
+        public int PopularityRank { get; init; }
+        public int RatingRank { get; init; }
+        public string AgeRatingGuide { get; init; } = string.Empty;
+        public int EpisodeCount { get; init; }
+        public int? EpisodeLength { get; init; }
+        public string YoutubeVideoId { get; init; } = string.Empty;
+        public bool Nsfw { get; init; }
     }
 }
