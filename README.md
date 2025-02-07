@@ -12,20 +12,20 @@ This solution involves Api, App and Service to collect and list animes.
 - Worker Service: periodically searches for the anime list from the external repository and saves it into the local database.
 
 ### Create Database 
-Open terminal in the root directory and run the commands below:
+Rebuild the solution, open the terminal in the root directory and run the commands below:
 
 - Create migration files.
 ```sql
 dotnet ef migrations add InitialCreate --project Repository --startup-project WebAPI -- "Server=(localdb)\\mssqllocaldb;Database=HahnSoftwareDatabase;Trusted_Connection=True;";
 ```
 
-- Create the database with migrations.
+- Create the database and migrations.
 ```sql
 dotnet ef database update --project Repository --startup-project WebAPI -- "Server=(localdb)\\mssqllocaldb;Database=HahnSoftwareDatabase;Trusted_Connection=True;";
 ```
 
 ### Test Run
-Open Visual Studio, open the solution properties and set the WebAPI, WebApp and WorkerService to start together.
+On the solution properties, set the WebAPI, WebApp and WorkerService to start together.
 
 ![solution_properties](./docs/solution_properties.png)
 

@@ -22,7 +22,7 @@ namespace WorkerService.Services
         public void RunUpsertAnimeListJob(string baseUrl, CancellationToken cancellationToken)
         {
             _httpService.UpsertAnimeList(baseUrl, cancellationToken);
-            RecurringJob.AddOrUpdate(RECURRING_JOB, () => _httpService.UpsertAnimeList(baseUrl, cancellationToken), "*/10 * * * * *");
+            RecurringJob.AddOrUpdate(RECURRING_JOB, () => _httpService.UpsertAnimeList(baseUrl, cancellationToken), Cron.Hourly);
         }
     }
 }
