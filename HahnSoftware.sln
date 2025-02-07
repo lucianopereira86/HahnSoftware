@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application", "1 - Application", "{EFD25C08-BCE2-46B2-8BA3-6FE5BF9E9E4E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{EFD25C08-BCE2-46B2-8BA3-6FE5BF9E9E4E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{283DC2D4-6300-4C42-9B79-4E08E75DC14D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{283DC2D4-6300-4C42-9B79-4E08E75DC14D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infrastructure", "3 - Infrastructure", "{F9F3DAB5-335C-4630-BBA3-90AF16FEE5AA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{F9F3DAB5-335C-4630-BBA3-90AF16FEE5AA}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "WebApp", "App\WebApp.esproj", "{D099B40D-E65F-4945-A2F0-56337C82D5FA}"
 EndProject
@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{8F1C2369-842F-443B-B20C-4DBE6D121670}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Web", "0 - Web", "{B62EDC4B-CD47-44C9-8B4E-F1C7D7FCE653}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Web", "1 - Web", "{B62EDC4B-CD47-44C9-8B4E-F1C7D7FCE653}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalResources", "ExternalResources\ExternalResources.csproj", "{F5A5FF64-5CCA-4F39-A389-1A48F1F5093A}"
 EndProject
