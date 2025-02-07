@@ -3,7 +3,7 @@ using MediatR;
 
 namespace WebAPI.Mediator.Anime
 {
-    public class UpsertAnimeQuery : IRequest<IEnumerable<AnimeData>>
+    public class GetAnimeQuery : IRequest<IEnumerable<AnimeData>>
     {
         
     }

@@ -24,7 +24,7 @@ namespace WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var result = await _mediator.Send(new UpsertAnimeQuery());
+            var result = await _mediator.Send(new GetAnimeQuery());
             return Ok(result);
         }
 
