@@ -31,7 +31,7 @@ GlobalConfiguration.Configuration.UseMemoryStorage();
 using (var server = new BackgroundJobServer())
 {
     Console.WriteLine("Hangfire Server started. Press any key to exit...");
-    await workerService.RunUpsertAnimeListJob(httpSettings.BaseUrl, CancellationToken.None);
+    workerService.RunUpsertAnimeListJob(httpSettings.BaseUrl, CancellationToken.None);
     Console.ReadKey();
 }
 

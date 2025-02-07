@@ -19,16 +19,10 @@ namespace WorkerService.Services
         }
 
         /// <inheritdoc/>
-        public async Task RunUpsertAnimeListJob(string baseUrl, CancellationToken cancellationToken)
+        public void RunUpsertAnimeListJob(string baseUrl, CancellationToken cancellationToken)
         {
-            await UpsertAnimeList(baseUrl, cancellationToken);
-            RecurringJob.AddOrUpdate(RECURRING_JOB, () => UpsertAnimeList(baseUrl, cancellationToken), Cron.Minutely);
-        }
-
-        /// <inheritdoc/>
-        public Task UpsertAnimeList(string baseUrl, CancellationToken cancellationToken)
-        {
-            return _httpService.UpsertAnimeList(baseUrl, cancellationToken);
+            _httpService.UpsertAnimeList(baseUrl, cancellationToken);
+            RecurringJob.AddOrUpdate(RECURRING_JOB, () => _httpService.UpsertAnimeList(baseUrl, cancellationToken), "*/10 * * * * *");
         }
     }
 }
