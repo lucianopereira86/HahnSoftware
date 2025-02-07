@@ -6,6 +6,7 @@ namespace WorkerService.Services
     /// <inheritdoc/>
     internal class WorkerService : IWorkerService
     {
+        private const string RECURRING_JOB = "upsert_animelist";
         private readonly IHttpService _httpService;
 
         /// <summary>
@@ -18,9 +19,16 @@ namespace WorkerService.Services
         }
 
         /// <inheritdoc/>
-        public void UpsertAnimeList(string baseUrl, CancellationToken cancellationToken)
+        public async Task RunUpsertAnimeListJob(string baseUrl, CancellationToken cancellationToken)
         {
-            RecurringJob.AddOrUpdate("upsert_animelist", () => _httpService.UpsertAnimeList(baseUrl, cancellationToken), Cron.Minutely);
+            await UpsertAnimeList(baseUrl, cancellationToken);
+            RecurringJob.AddOrUpdate(RECURRING_JOB, () => UpsertAnimeList(baseUrl, cancellationToken), Cron.Minutely);
+        }
+
+        /// <inheritdoc/>
+        public Task UpsertAnimeList(string baseUrl, CancellationToken cancellationToken)
+        {
+            return _httpService.UpsertAnimeList(baseUrl, cancellationToken);
         }
     }
 }
