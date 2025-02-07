@@ -4,6 +4,9 @@ using Domain.Models.Anime.Entities;
 
 namespace Repository.Database
 {
+    /// <summary>
+    /// Anime poster image configuration.
+    /// </summary>
     internal class AnimePosterImageConfiguration : IEntityTypeConfiguration<AnimePosterImage>
     {
         public void Configure(EntityTypeBuilder<AnimePosterImage> builder)

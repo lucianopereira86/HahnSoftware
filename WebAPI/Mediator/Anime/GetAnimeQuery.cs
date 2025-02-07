@@ -5,6 +5,5 @@ namespace WebAPI.Mediator.Anime
 {
     public class GetAnimeQuery : IRequest<IEnumerable<AnimeData>>
     {
-        
     }
 }

@@ -4,14 +4,21 @@ using Repository.Database;
 
 namespace Repository.Interfaces
 {
+    /// <inheritdoc/>
     public class AnimeRepository : IAnimeRepository
     {
         private readonly DbContextOptions<ApplicationDbContext> _dbOptions;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AnimeRepository"/> class.
+        /// </summary>
+        /// <param name="dbOptions">The database context options.</param>
         public AnimeRepository(DbContextOptions<ApplicationDbContext> dbOptions)
         {
             _dbOptions = dbOptions;
         }
+
+        /// <inheritdoc/>
         public async Task<IEnumerable<AnimeData>> GetAll(CancellationToken cancellationToken)
         {
             using var db = new ApplicationDbContext(_dbOptions);
@@ -22,6 +29,7 @@ namespace Repository.Interfaces
                             .ToListAsync(cancellationToken);
         }
 
+        /// <inheritdoc/>
         public async Task Upsert(IEnumerable<AnimeData> entities, CancellationToken cancellationToken)
         {
             using var db = new ApplicationDbContext(_dbOptions);

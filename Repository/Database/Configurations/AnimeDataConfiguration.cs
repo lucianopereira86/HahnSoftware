@@ -4,6 +4,9 @@ using Domain.Models.Anime.Entities;
 
 namespace Repository.Database.Configurations
 {
+    /// <summary>
+    /// Anime data configuration.
+    /// </summary>
     internal class AnimeDataConfiguration : IEntityTypeConfiguration<AnimeData>
     {
         public void Configure(EntityTypeBuilder<AnimeData> builder)

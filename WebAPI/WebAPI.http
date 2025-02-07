@@ -1,6 +1,0 @@
-@WebAPI_HostAddress = https://kitsu.io/api/edge
-
-GET {{WebAPI_HostAddress}}/anime
-Accept: application/vnd.api+json
-
-###
